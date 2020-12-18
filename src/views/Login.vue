@@ -42,9 +42,10 @@
 </template>
 
 <script>
+import api from '@/api/user'
 export default {
   data() {
-    const usernameReg = /^[\w]{4,8}$/;
+    const usernameReg = /^\w{4,8}$/;
     //处理用户名校验
     const checkUserName = (rule, value, callback) => {
       if (!value) {
@@ -86,7 +87,14 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert("submit!");
+          api.login(this.loginForm).then((res) => {
+            console.log(res)
+            if(res.success){
+              this.$router.push('/');
+            } 
+          }).catch((error) => {
+            this.$message.error(error)
+          })
         } else {
           console.log("error submit!!");
           return false;
