@@ -5,7 +5,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './mock/mock'
-
+import './router/permission'
+import './common/common.css'
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 

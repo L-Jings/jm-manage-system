@@ -42,7 +42,9 @@
 </template>
 
 <script>
-import api from '@/api/user'
+import {post} from '@/utils/http'
+import {setToken} from '@/utils/auth'
+
 export default {
   data() {
     const usernameReg = /^\w{4,8}$/;
@@ -87,18 +89,14 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          api.login(this.loginForm).then((res) => {
+          post('/login',this.loginForm).then((res) => {
             console.log(res)
-            if(res.success){
+              setToken(res.token); //存储token
               this.$router.push('/');
-            } 
           }).catch((error) => {
             this.$message.error(error)
           })
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
+        } 
       });
     },
   },

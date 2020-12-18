@@ -7,12 +7,18 @@ const routes = [
   {
     path: '/',
     name: 'Layout',
-    component: () => import('../views/Layout.vue')
+    redirect:'/index',
+    component: () => import('../views/Layout.vue'),
+    children: [{
+      path: '/index',
+      name: 'index',
+      component: () => import('@/views/index/index.vue')
+    }]
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue')
+    component: () => import('../views/Login.vue'),
   }
 ]
 

@@ -15,9 +15,10 @@ instance.interceptors.request.use((config) => {
     return Promise.reject(error)
 })
 instance.interceptors.response.use((response) => {
-    if(!response.data.success){ //如果错误
-        return Promise.reject(response.data.message);
+    const res = response.data;
+    if(!res.success){ //如果错误
+        return Promise.reject(res.message || '请求错误');
     }
-    return response.data;
+    return res;
 },(error) => Promise.reject(error))
 export default instance;
