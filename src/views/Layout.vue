@@ -38,6 +38,6 @@ export default {
 }
 .contbg {
   background-color: #e9eef3;
-  height: 100vh;
+  height: 80vh;
 }
 </style>

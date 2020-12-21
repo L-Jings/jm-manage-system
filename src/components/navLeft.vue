@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-menu background-color="#001529" text-color="#fff">
+    <el-menu background-color="#001529" text-color="#fff" :router="true">
       <menus v-for="(item, index) in menuData" :key="index" :menu="item" />
     </el-menu>
   </div>
