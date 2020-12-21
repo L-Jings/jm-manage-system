@@ -90,9 +90,10 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           post('/login',this.loginForm).then((res) => {
-            console.log(res)
+            // console.log(res)
               setToken(res.token); //存储token
               this.$router.push('/');
+              sessionStorage.setItem("nickname",res.nickname); //存储nickname
           }).catch((error) => {
             this.$message.error(error)
           })

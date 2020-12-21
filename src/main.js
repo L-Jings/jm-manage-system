@@ -7,9 +7,11 @@ import store from './store'
 import './mock/mock'
 import './router/permission'
 import './common/common.css'
+import * as echarts from 'echarts'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-
+Vue.prototype.$echarts = echarts;
 new Vue({
   router,
   store,

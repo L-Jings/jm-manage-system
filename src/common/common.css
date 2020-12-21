@@ -22,3 +22,19 @@ li {
 .clear {
     clear: both;
 }
+
+.mt {
+    margin-top: 15px;
+}
+
+.ml {
+    margin-left: 15px;
+}
+
+.mr {
+    margin-right: 15px;
+}
+
+.mb {
+    margin-bottom: 15px;
+}
