@@ -5,8 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    detailData:''
   },
   mutations: {
+    setData(state,{id}) {
+      state.detailData = id;
+    }
   },
   actions: {
   },

@@ -5,7 +5,7 @@
         item
       }}</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-card style="margin-bottom: 10px">
+    <el-card class="mb mt">
       <el-row>
         <el-col :span="8">
           <el-input placeholder="手机号、姓名、角色类型" v-model="searchVal">
@@ -145,9 +145,8 @@ export default {
     newAdd() {
       //新增角色
       this.dialogVisible = true;
-      this.$nextTick(() => {
+      
         this.$refs["forms"].resetFields();
-      })
     },
     onOk() {
       this.$refs["forms"].validate((valid) => {
