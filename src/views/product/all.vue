@@ -36,7 +36,7 @@
         </el-col>
         <el-col :span="6">
           <el-button type="primary" @click="search">查询</el-button>
-          <el-button type="primary">重置</el-button>
+          <el-button type="primary" @click="reset">重置</el-button>
           <span @click="expand">
             {{ advanced ? "收起" : "展开" }}
             <i :class="'el-icon-arrow-' + (advanced ? 'up' : 'down')"></i>
@@ -126,6 +126,7 @@
 <script>
 import breadCrumb from "@/mixins/breadCrumb";
 import { get } from "@/utils/http";
+import moment from "moment";
 export default {
   mixins: [breadCrumb],
   data() {
@@ -134,7 +135,7 @@ export default {
         //表单参数，用来请求数据
         proName: "",
         interestRate: "",
-        date: "",
+        date: [new Date(),new Date()],
         cateGory: "",
         byStages: "",
         status: "",
@@ -153,6 +154,12 @@ export default {
     search() {
       //点击search按钮的时候，需要通过表单值作为参数传递发送数据给服务器
       //post(url,this.params)
+      let start = this.params.date[0];
+      //用moment处理日期对象
+      console.log(moment(start).format('YYYY-MM-DD'));
+    },
+    reset() { //重置日期为当前日期
+      this.params.date = [new Date(),new Date()];
     },
     expand() {
       //点击展开
